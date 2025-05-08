@@ -61,17 +61,33 @@ meth.h + meth.c	Functions to find CpG methylation sites.
 mutdec.h + mutdec.c	Functions to detect mutations.
 rnasec.h + rnasec.c	Functions to predict RNA structure.
 var.h + var.c	Functions to detect genetic variants.
-How to Compile and Run
 
-Make sure you have all .c and .h files in the same directory.
 
-Compile the program using a C compiler like gcc:
 
-gcc main.c meth.c mutdec.c rnasec.c var.c -o dna_rna_analysis
+Compilation and Execution
 
-Run the compiled program:
+To compile the program, follow these steps:
 
-./dna_rna_analysis
+    Clone the repository to your local machine:
+
+git clone https://github.com/yourusername/bioinformatics-program.git
+cd bioinformatics-program
+
+Compile the source files using gcc (or another C compiler):
+
+gcc main.c meth.c mutdec.c rnasec.c var.c -o final_program
+
+This will create an executable named final_program.
+
+If you prefer to use make, you can use the provided Makefile (if available). To compile the program with make:
+
+make
+
+Once compiled, you can run the program:
+
+    ./final_program
+
+
 
 Requirements
 
