@@ -1,17 +1,34 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 #define MAX_LEN 1000
 #define WINDOW_SIZE 10
 #define THRESHOLD 2
 
+static int is_valid_dna(char *seq) {
+    for (int i = 0; seq[i] != '\0'; i++) {
+        char c = toupper(seq[i]);
+        if (c != 'A' && c != 'T' && c != 'C' && c != 'G') {
+            return 0; // invalid
+        }
+    }
+    return 1; // valid
+}
+
 void find_methylation_sites() {
     char dna[MAX_LEN];
     int length, i, j;
-    int found = 0; // to track if any window satisfies the condition
+    int found = 0;
 
     printf("Enter DNA sequence (A, T, C, G only):\n");
     scanf("%s", dna);
+
+    if (!is_valid_dna(dna)) {
+        printf("Error: Invalid characters in DNA sequence. Only A, T, C, G are allowed.\n");
+        return;
+    }
+
     length = strlen(dna);
 
     if (length < WINDOW_SIZE) {
@@ -38,5 +55,3 @@ void find_methylation_sites() {
         printf("No high-probability CpG methylation sites found.\n");
     }
 }
-
-
