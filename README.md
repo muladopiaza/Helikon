@@ -1,101 +1,102 @@
-DNA and RNA Sequence Analysis Program
-Description
+#  DNA and RNA Sequence Analysis Program
 
-This is a menu-driven C program for performing basic DNA and RNA sequence analysis.
-It allows the user to select from different biological analysis options through a simple command-line menu, including:
+A **menu-driven C program** for performing basic DNA and RNA sequence analysis through the command line. This tool enables users to explore various biological features such as:
 
-    Finding CpG Methylation Sites
+- Finding **CpG Methylation Sites**
+- **Detecting Mutations**
+- **Predicting RNA Secondary Structures**
+- **Detecting DNA Variants**
 
-    Detecting Mutations
+---
 
-    Predicting RNA Secondary Structures
+# Menu Options
 
-    Detecting DNA Variants
-Menu Options
-
-When you run the program, you will see the following menu:
+When you run the program, you'll see the following menu:
 
 Choose an option:
-1. Find CpG Methylation Sites
-2. Detect Mutations
-3. Predict RNA Structure
-4. Detect Variants
-5. Exit
-Enter choice:
 
-Details of each option:
+    Find CpG Methylation Sites
 
-    1. Find CpG Methylation Sites
+    Detect Mutations
 
-        Prompts the user to input a DNA sequence (A, T, C, G only).
+    Predict RNA Structure
 
-        Scans the sequence using a sliding window of size 10.
+    Detect Variants
 
-        Counts the number of CpG dinucleotide patterns (CG) in each window.
-
-        If the number of CpG sites in a window is greater than or equal to 2, it is reported as a high-probability methylation site.
-
-    2. Detect Mutations
-
-        Placeholder function (mutation_detection() in mutdec.h) for detecting mutations between sequences.
-        (Implementation expected to be in mutdec.c.)
-
-    3. Predict RNA Structure
-
-        Placeholder function (predict_rna_structure() in rnasec.h) for analyzing and predicting basic RNA secondary structures.
-        (Implementation expected to be in rnasec.c.)
-
-    4. Detect Variants
-
-        Placeholder function (variant_detection() in var.h) for detecting genetic variants like SNPs.
-        (Implementation expected to be in var.c.)
-
-    5. Exit
-
-        Cleanly exits the program.
-
-File Structure
-File	Purpose
-main.c	Displays the menu and controls program flow.
-meth.h + meth.c	Functions to find CpG methylation sites.
-mutdec.h + mutdec.c	Functions to detect mutations.
-rnasec.h + rnasec.c	Functions to predict RNA structure.
-var.h + var.c	Functions to detect genetic variants.
+    Exit
+    Enter choice:
 
 
+### 🔹 Option 1: Find CpG Methylation Sites
 
-Compilation and Execution
+- Prompts user to enter a DNA sequence (A, T, C, G only).
+- Scans the sequence using a sliding window of size 10.
+- Detects `CpG` dinucleotide patterns (i.e., "CG") within each window.
+- If `>= 2` CpG sites are found in a window, it's reported as a **high-probability methylation site**.
 
-To compile the program, follow these steps:
+---
 
-    Clone the repository to your local machine:
+### 🔹 Option 2: Detect Mutations
 
+- Calls a placeholder function: `mutation_detection()` defined in `mutdec.h`
+- Expected implementation should compare two sequences and highlight mutations.
+- (To be implemented in `mutdec.c`)
+
+---
+
+### 🔹 Option 3: Predict RNA Structure
+
+- Placeholder function: `predict_rna_structure()` in `rnasec.h`
+- Intended for RNA secondary structure prediction.
+- (To be implemented in `rnasec.c`)
+
+---
+
+### 🔹 Option 4: Detect Variants
+
+- Placeholder function: `variant_detection()` in `var.h`
+- For detecting genetic variants like **SNPs**.
+- (To be implemented in `var.c`)
+
+---
+
+### 🔹 Option 5: Exit
+
+- Cleanly exits the program.
+
+---
+
+## File Structure
+
+| File | Purpose |
+|------|---------|
+| `main.c` | Menu interface & main program logic |
+| `meth.c/h` | CpG methylation site detection |
+| `mutdec.c/h` | Mutation detection (placeholder) |
+| `rnasec.c/h` | RNA structure prediction (placeholder) |
+| `var.c/h` | Variant detection (placeholder) |
+
+---
+
+##  Compilation and Execution
+
+###  Clone the repository
+
+```bash
 git clone https://github.com/yourusername/bioinformatics-program.git
 cd bioinformatics-program
 
-Compile the source files using gcc (or another C compiler):
+ Compile with gcc
 
 gcc main.c meth.c mutdec.c rnasec.c var.c -o final_program
 
-This will create an executable named final_program.
-
-If you prefer to use make, you can use the provided Makefile (if available). To compile the program with make:
+ Or use make
 
 make
 
-Once compiled, you can run the program:
+ Run the program
 
-    ./final_program
-
-
-
-Requirements
-
-    Standard C compiler (e.g., GCC)
-
-    Basic knowledge of DNA/RNA sequences (nucleotides: A, T, C, G, U)
-
-    All source (.c) and header (.h) files
+./final_program
 
 Example Run
 
@@ -115,26 +116,31 @@ Position 4 to 13: 3 CpG sites
 Position 6 to 15: 2 CpG sites
 ...
 
-Choose an option:
-...
+ Notes
 
-Notes
+    Minimal input validation (expects only valid uppercase nucleotides).
 
-    Only basic validation of sequences is performed (expects correct input).
+    Mutation detection, RNA structure prediction, and variant detection are placeholders.
 
-    Mutation detection, RNA structure prediction, and variant detection are placeholder functions — users should implement their own logic based on project needs.
-
-    Easily expandable by adding more biological analyses in separate modules.
+    Designed to be modular and easily extensible.
 
 Future Improvements
 
-    Full implementation of mutation detection, RNA structure prediction, and variant detection.
+    Full implementation of:
 
-    More robust input validation (e.g., handle lowercase input).
+        Mutation detection
 
-    Ability to read/write sequences from/to files.
+        RNA structure prediction
 
-    Visualization of CpG methylation sites and RNA structures.
+        Variant detection
 
+    Better input validation (e.g., lowercase handling, file input).
 
+    Sequence I/O (reading from and writing to files).
+
+    Visualization of:
+
+        CpG methylation sites
+
+        RNA secondary structures
 
